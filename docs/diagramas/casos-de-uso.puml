@@ -1,0 +1,65 @@
+  @startuml casos_de_uso_aluguel_carros
+left to right direction
+skinparam packageStyle rectangle
+
+actor Cliente
+actor Agente
+actor Empresa
+actor Banco
+
+Agente <|-- Empresa
+Agente <|-- Banco
+
+rectangle "Sistema de Aluguel de Carros" {
+  usecase "Cadastrar-se no sistema" as UC01
+  usecase "Realizar login" as UC02
+  usecase "Manter dados do contratante" as UC03
+  usecase "Registrar entidades empregadoras" as UC04
+  usecase "Criar pedido de aluguel" as UC05
+  usecase "Alterar pedido de aluguel" as UC06
+  usecase "Consultar pedido de aluguel" as UC07
+  usecase "Cancelar pedido de aluguel" as UC08
+  usecase "Consultar pedidos recebidos" as UC09
+  usecase "Avaliar pedido (registrar parecer)" as UC10
+  usecase "Decidir sobre pedido aprovado" as UC11
+  usecase "Executar contrato de aluguel" as UC12
+  usecase "Cadastrar automóvel" as UC13
+  usecase "Registrar propriedade do automóvel" as UC14
+  usecase "Conceder contrato de crédito" as UC15
+}
+
+Cliente --> UC01
+Cliente --> UC02
+Cliente --> UC03
+Cliente --> UC05
+Cliente --> UC06
+Cliente --> UC07
+Cliente --> UC08
+Cliente --> UC11
+
+Agente --> UC01
+Agente --> UC02
+Agente --> UC09
+Agente --> UC10
+Agente --> UC13
+Agente --> UC14
+
+Banco --> UC15
+
+UC03 ..> UC04 : <<include>>
+UC05 ..> UC02 : <<include>>
+UC05 ..> UC03 : <<include>>
+UC05 ..> UC13 : <<include>>
+UC06 ..> UC02 : <<include>>
+UC07 ..> UC02 : <<include>>
+UC08 ..> UC02 : <<include>>
+UC09 ..> UC02 : <<include>>
+UC10 ..> UC02 : <<include>>
+UC11 ..> UC02 : <<include>>
+UC12 ..> UC11 : <<include>>
+UC12 ..> UC14 : <<include>>
+UC15 ..> UC12 : <<extend>>
+note right of UC15 : Somente na modalidade Leasing
+UC06 ..> UC05 : <<extend>>
+note bottom of UC06 : Apenas enquanto o pedido\nnão tiver sido avaliado
+@enduml
