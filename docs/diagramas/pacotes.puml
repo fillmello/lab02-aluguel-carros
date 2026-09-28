@@ -28,7 +28,7 @@ package "br.pucminas.aluguel" {
   package "util" as util
 }
 
-view ..> controller : usa
+view ..> controller : usaz
 web ..> controller : requisições HTTP
 controller ..> service : delega regras de negócio
 controller ..> model : manipula entidades

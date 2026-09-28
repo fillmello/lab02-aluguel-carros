@@ -68,6 +68,7 @@ As regras foram comparadas com o enunciado e validadas por compilação e execu�
 - Estruturação do protótipo Java em arquitetura MVC, conforme o diagrama de pacotes.
 - Implementação da interface web para cadastro, login, criação e consulta de pedidos.
 - Criação das instruções de execução e validação do fluxo principal.
+- JPA + Docker
 
 ### O que foi feito sem apoio de IA
 - Execução e validação do protótipo no ambiente local.
