@@ -36,6 +36,8 @@ contratos, e construção dinâmica das páginas web. A implementação será em
 | Diagrama de Casos de Uso | [`docs/diagramas/casos-de-uso.puml`](docs/diagramas/casos-de-uso.puml) · [`.png`](docs/diagramas/casos-de-uso.png) |
 | Diagrama de Classes | [`docs/diagramas/classes.puml`](docs/diagramas/classes.puml) · [`.png`](docs/diagramas/classes.png) |
 | Diagrama de Pacotes (Visão Lógica) | [`docs/diagramas/pacotes.puml`](docs/diagramas/pacotes.puml) · [`.png`](docs/diagramas/pacotes.png) |
+| Diagrama de Componentes | [`docs/diagramas/componentes.puml`](docs/diagramas/componentes.puml) |
+| Diagrama de Implantação | [`docs/diagramas/implantacao.puml`](docs/diagramas/implantacao.puml) |
 | Histórias de Usuário | [`docs/historias-de-usuario.md`](docs/historias-de-usuario.md) |
 | Contribuições semanais | [`docs/contribuicoes/`](docs/contribuicoes/) |
 | Uso de Inteligência Artificial | [`docs/uso-de-ia.md`](docs/uso-de-ia.md) |
@@ -89,3 +91,27 @@ extensão PlantUML do VS Code.
 ## Repositório
 
 `https://github.com/<usuario-ou-organizacao>/lab02-aluguel-carros`
+
+## Executar o protótipo
+
+Requer JDK 21 ou superior, Maven e Docker Desktop.
+
+```bash
+docker compose up -d postgres
+mvn clean package
+mvn exec:java
+```
+
+Acesse <http://localhost:8080>. O protótipo permite cadastrar e autenticar um cliente, registrar até três empregadoras, cadastrar automóveis, consultar o catálogo, criar, alterar e cancelar pedidos, visualizar o status e decidir sobre pedidos aprovados. A fila do agente está disponível em <http://localhost:8080/agente>, com cadastro de automóvel, aprovação/reprovação e justificativa. Os dados são persistidos no PostgreSQL executado pelo Docker.
+
+O protótipo usa JPA com Hibernate e cria/atualiza as tabelas automaticamente (`hibernate.hbm2ddl.auto=update`). O volume Docker `aluguel_postgres_data` preserva os dados mesmo após reiniciar a aplicação. Ao aceitar um pedido aprovado, o sistema gera e persiste um contrato de locação, assinatura ou leasing com seus dados específicos. Controle de usuários agentes e segurança de produção permanecem como evoluções futuras.
+
+CPF e RG são normalizados antes da persistência e exibidos com formatação amigável no painel e na fila do agente.
+
+## Organização da implementação
+
+- `model`: entidades e enums do domínio.
+- `repository`: acesso transacional ao PostgreSQL por JPA.
+- `service`: regras de cadastro e pedidos.
+- `controller`: rotas HTTP e sessão.
+- `view`: páginas HTML/CSS renderizadas pelo servidor.

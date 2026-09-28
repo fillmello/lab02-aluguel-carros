@@ -60,6 +60,9 @@ class Pedido {
   - status: StatusPedido
   + podeSerAlterado(): boolean
   + registrarParecer(p: Parecer): void
+  + alterar(a: Automovel, m: Modalidade): void
+  + cancelar(): void
+  + decidir(aceita: boolean): void
 }
 
 class Parecer {

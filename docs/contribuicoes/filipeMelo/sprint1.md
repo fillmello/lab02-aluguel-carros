@@ -1,20 +1,17 @@
 # Contribuições — integrante-1 — Sprint 1 (Lab02S01)
 
-> Substitua `integrante-1` pelo seu nome e preencha um bloco `## Semana N`
-> a cada semana da sprint, sem apagar os blocos anteriores.
+> A sprint dura uma semana. Registre neste arquivo a contribuição e as decisões
+> realizadas durante essa semana.
 
 ## Semana 1
 
-**Contribuição:** _descreva o que você produziu nesta semana (ex.: modelei os
-casos de uso UCxx e UCxx em PlantUML e escrevi as histórias de usuário
-correspondentes HUxx e HUxx)._
+**Contribuição:** Modelei os casos de uso relacionados ao cliente, incluindo
+criação, consulta e cancelamento de pedidos, e revisei as histórias HU05 a HU08.
 
-**Decisões:** _explique o porquê das decisões de modelagem (ex.: optei por
-representar "Realizar login" como caso de uso incluído (<<include>>) em vez de
-repetir a validação em cada caso de uso, para evitar duplicidade no diagrama)._
+**Decisões:** Mantive "Realizar login" como caso de uso incluído nas operações
+protegidas para evitar duplicação e deixei o pedido cancelado consultável pelo
+cliente, conforme os critérios de aceitação.
 
-## Semana 2
-
-**Contribuição:** _descreva o que você produziu nesta semana._
-
-**Decisões:** _explique o porquê das decisões tomadas._
+Também revisei a correspondência entre as histórias de usuário, o diagrama de
+classes e o protótipo MVC. Preservei a separação entre pedido, parecer e
+contrato para bloquear alterações após a avaliação sem apagar o histórico.

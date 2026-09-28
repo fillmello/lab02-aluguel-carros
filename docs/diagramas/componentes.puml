@@ -1,0 +1,30 @@
+@startuml diagrama_de_componentes
+skinparam componentStyle rectangle
+left to right direction
+
+actor Cliente
+actor Agente
+
+component "Navegador web" as browser
+component "Servidor Java" as server
+component "AluguelController\n(MVC Controller)" as controller
+component "HtmlView\n(MVC View)" as view
+component "AluguelService\n(MVC Service)" as service
+component "InMemoryRepository\n(Repository)" as repository
+component "Modelo de domínio" as model
+
+Cliente --> browser
+Agente --> browser
+browser --> server : HTTP
+server --> controller
+controller --> view : renderiza páginas
+controller --> service : delega operações
+service --> model : aplica regras
+service --> repository : consulta/persiste
+repository --> model : armazena entidades
+
+note right of repository
+  Protótipo: armazenamento em memória.
+  Pode ser substituído por banco na evolução.
+end note
+@enduml

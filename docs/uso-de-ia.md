@@ -54,8 +54,24 @@ oralmente as decisões de modelagem dos artefatos sob sua responsabilidade.
 
 ## Sprint 2 (Lab02S02)
 
-_A preencher._
+### O que foi feito com apoio de IA
+- Revisão dos diagramas conforme os entregáveis de componentes e implantação.
+- Implementação dos fluxos de alteração, cancelamento, avaliação e decisão sobre pedidos.
+- Inclusão da entidade empregadora e da regra de limite de três registros.
+
+### Revisão humana
+As regras foram comparadas com o enunciado e validadas por compilação e execução local.
 
 ## Sprint 3 (Lab02S03)
 
-_A preencher._
+### O que foi feito com apoio de IA
+- Estruturação do protótipo Java em arquitetura MVC, conforme o diagrama de pacotes.
+- Implementação da interface web para cadastro, login, criação e consulta de pedidos.
+- Criação das instruções de execução e validação do fluxo principal.
+
+### O que foi feito sem apoio de IA
+- Execução e validação do protótipo no ambiente local.
+- Revisão do comportamento e dos textos apresentados na interface.
+
+### Revisão humana
+O fluxo de cadastro, autenticação, criação e consulta de pedido foi executado localmente e revisado pela equipe.

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="https://jakarta.ee/xml/ns/persistence" version="3.1">
+    <persistence-unit name="aluguelPU" transaction-type="RESOURCE_LOCAL">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <class>br.pucminas.aluguel.model.Cliente</class>
+        <class>br.pucminas.aluguel.model.Empregadora</class>
+        <class>br.pucminas.aluguel.model.Automovel</class>
+        <class>br.pucminas.aluguel.model.Pedido</class>
+        <class>br.pucminas.aluguel.model.Contrato</class>
+        <class>br.pucminas.aluguel.model.Locacao</class>
+        <class>br.pucminas.aluguel.model.Assinatura</class>
+        <class>br.pucminas.aluguel.model.Leasing</class>
+        <properties>
+            <property name="jakarta.persistence.jdbc.driver" value="org.postgresql.Driver"/>
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/aluguel"/>
+            <property name="jakarta.persistence.jdbc.user" value="aluguel"/>
+            <property name="jakarta.persistence.jdbc.password" value="aluguel"/>
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+            <property name="hibernate.show_sql" value="false"/>
+        </properties>
+    </persistence-unit>
+</persistence>
