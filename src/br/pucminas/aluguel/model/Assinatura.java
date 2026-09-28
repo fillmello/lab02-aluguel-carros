@@ -1,7 +1,5 @@
 package br.pucminas.aluguel.model;
 
-import jakarta.persistence.Entity;
-
 @Entity
 public class Assinatura extends Contrato {
     private double mensalidade = 1499.90;

@@ -58,7 +58,7 @@ public class AluguelService {
         return switch (modalidade) {
             case LOCACAO -> new Locacao(30);
             case ASSINATURA -> new Assinatura(1499.90, 10);
-            case LEASING -> new Leasing(36, 0);
+            case LEASING -> new Leasing(36, 0, new ContratoCredito(60000, 1.2, 36, new Banco("001", "Banco agente")));
         };
     }
     private Pedido localizar(Cliente cliente, long numero) {
